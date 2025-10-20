@@ -1,14 +1,12 @@
 const Kime = require('./kime/index');
 const Router = require('./kime/router');
-const Template = require('./kime/template');
 
 const app = new Kime();
 const router = new Router();
-new Template(app.app, 'app/views'); // setup templates
 
 // define routes
 router.get('/', (req, res) => {
-    res.send('Welcome to Kime Framework!');
+    res.render('index', { title: 'Welcome to Kime Framework' });
 });
 
 router.get('/hello', (req, res) => {

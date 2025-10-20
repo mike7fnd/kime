@@ -96,9 +96,9 @@ switch (command) {
     const server = spawn('node', ['server.js'], { stdio: 'inherit' });
     break;
 
-  // -------------------
-  // Generate a new project
-  // -------------------
+    // -------------------
+    // Generate a new project
+    // -------------------
   case 'new':
     const projectName = args[1] || 'kime-app';
     const projectPath = path.join(process.cwd(), projectName);
@@ -110,6 +110,56 @@ switch (command) {
 
     fs.mkdirSync(projectPath);
 
+    // -------------------
+    // Create package.json
+    // -------------------
+    const packageJsonContent = {
+      name: projectName.toLowerCase(),
+      version: "1.0.0",
+      description: "",
+      main: "app/server.js",
+      scripts: {
+        start: "node app/server.js",
+        serve: "node app/server.js",
+        migrate: "node app/migrate.js"
+      },
+      dependencies: {
+        express: "^5.1.0",
+        ejs: "^3.1.10",
+        "body-parser": "^2.2.0"
+      }
+    };
+
+    // Copy the entire framework structure into new project first
+    const frameworkPath = __dirname;
+    const excludeFiles = ['node_modules', 'package-lock.json', '.git'];
+
+    function copyFramework(src, dest) {
+      if (!fs.existsSync(dest)) fs.mkdirSync(dest, { recursive: true });
+      fs.readdirSync(src).forEach(file => {
+        if (excludeFiles.includes(file)) return;
+        const srcPath = path.join(src, file);
+        const destPath = path.join(dest, file);
+        if (fs.lstatSync(srcPath).isDirectory()) {
+          copyFramework(srcPath, destPath);
+        } else {
+          fs.copyFileSync(srcPath, destPath);
+        }
+      });
+    }
+
+    copyFramework(frameworkPath, projectPath);
+
+    // Overwrite package.json with project-specific one
+    fs.writeFileSync(
+      path.join(projectPath, 'package.json'),
+      JSON.stringify(packageJsonContent, null, 2)
+    );
+    console.log('Created package.json');
+
+    // -------------------
+    // Prompt user for template choices
+    // -------------------
     inquirer.prompt([
       {
         type: 'list',
@@ -130,10 +180,6 @@ switch (command) {
         default: false
       }
     ]).then(answers => {
-      // Copy framework template files into new project
-      const templatePath = path.join(__dirname, 'app-template'); // your template folder
-      copyFolder(templatePath, path.join(projectPath, 'app'));
-
       // Save user choices
       fs.writeFileSync(
         path.join(projectPath, 'kime-config.json'),

@@ -1,0 +1,115 @@
+/* Body - Clean Apple-style layout */
+body {
+    font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    font-weight: 400; /* Light body for readability */
+    line-height: 1.8; /* Slightly more airy spacing */
+    color: #1c1c1e; /* Dark Apple text color */
+    background-color: #f5f5f7; /* Soft, light background */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 20px; /* Ensure padding on small screens */
+}
+
+/* Container - subtle Apple-style frosted look with side image */
+.container {
+    max-width: 900px;
+    width: 100%;
+    margin: 0 auto;
+    padding: 50px;
+    background-color: rgba(255, 255, 255, 0.98); /* Light frosted feel */
+    border-radius: 20px; /* Soft rounded corners */
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.05); /* Light shadow for depth */
+    backdrop-filter: blur(15px);
+
+    display: flex; /* Side-by-side layout */
+    align-items: center; /* Vertically center content and image */
+    gap: 40px; /* Space between image and text */
+}
+
+/* Image next to content */
+.container img {
+    max-width: 40%; /* Adjust size as needed */
+    height: auto;
+    border-radius: 15px; /* Slightly rounded edges to match style */
+    box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+}
+
+/* Text content inside container */
+.content {
+    flex: 1; /* Take remaining space */
+}
+
+/* Headings - clear hierarchy */
+h1 {
+    color: #1d1d1f;
+    font-weight: 700; /* Bold */
+    font-size: 3rem;
+    margin-bottom: 15px;
+    text-align: left;
+}
+
+.subtitle {
+    font-weight: 400;
+    font-size: 1.25rem;
+    color: #6e6e73; /* Apple gray */
+    text-align: left;
+    margin-top: 5px;
+}
+
+/* Paragraphs - clean reading */
+.description p {
+    font-weight: 300; /* Light for smooth reading */
+    font-size: 1.1rem;
+    line-height: 1.9;
+    text-align: left;
+    color: #2c2c2e;
+    margin-bottom: 20px;
+}
+
+/* Lists - Apple accent style */
+.description ul {
+    list-style: none;
+    padding: 0;
+    margin: 20px 0;
+}
+
+.description li {
+    border-left: 4px solid #0071e3; /* Apple blue accent */
+    padding-left: 20px;
+    background-color: rgba(0, 113, 227, 0.05); /* Subtle highlight */
+    border-radius: 6px;
+    margin-bottom: 10px;
+}
+
+/* Footer - subtle Apple style */
+footer {
+    text-align: left;
+    padding-top: 30px;
+    border-top: 1px solid rgba(0, 0, 0, 0.05);
+    color: #6e6e73;
+    font-size: 0.9rem;
+}
+
+/* Responsive adjustments */
+@media (max-width: 800px) {
+    .container {
+        flex-direction: column; /* Stack image above text on small screens */
+        padding: 30px;
+    }
+
+    .container img {
+        max-width: 70%;
+        margin-bottom: 30px;
+    }
+
+    h1 {
+        font-size: 2.2rem;
+        text-align: center;
+    }
+
+    .subtitle, .description p, footer {
+        text-align: center;
+    }
+}
