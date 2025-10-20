@@ -1,6 +1,6 @@
 {
   "name": "kime-framework",
-  "version": "1.0.0",
+  "version": "1.3.0",
   "description": "Kime Framework - a lightweight Node.js web framework with CLI",
   "main": "server.js",
   "bin": {
