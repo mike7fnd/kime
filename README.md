@@ -1,62 +1,64 @@
-# ⚡ Kime Framework
 
-![Kime Logo](./logo.png) <!-- Optional logo -->
 
-**Kime Framework** is a lightweight, modular Node.js framework for rapid web and desktop app development.  
-It allows you to scaffold projects, generate controllers/models, manage views, and run a local server.  
-Optional **Electron support** enables desktop applications using the same codebase.
+# Kime Framework
 
----
 
-## 📝 About the Framework
+> Lightweight Node.js Framework for Rapid Web & Desktop Development developed by of Mike Fernandez.
 
-- **Dynamic & Modular:** Controllers, models, views, and custom routes  
-- **Database Support:** MongoDB & MySQL  
-- **Rapid Scaffolding:** Generate fully structured projects in seconds  
-- **CLI Driven:** Simple commands for project creation, file generation, and development  
-- **Electron Support:** Optional desktop app integration  
-- **Version & Update:** Check CLI version with `kime --version` and update with `kime update`  
+## Overview
 
----
+**Kime Framework** is a lightweight, modular Node.js framework for rapid web and desktop app development. It allows you to scaffold projects, generate controllers/models, manage views, and run a local server. Optional **Electron support** enables desktop applications using the same codebase.
 
-## ⚙ Installation
+## About
+
+- **Dynamic & Modular**: Controllers, models, views, and custom routes
+- **Database Support**: MongoDB, MySQL
+- **Rapid Scaffolding**: Generate projects in seconds
+- **CLI Driven**: Commands for creation, generation, and development
+- **Version & Updates**: Check version with `kime --version`, update with `kime update`
+
+## Installation
 
 Install Kime CLI globally:
 
 ```bash
 npm install -g kime-framework
-macOS/Linux may require sudo:
+```
 
-bash
-Copy code
+For macOS/Linux, if permission errors occur:
+
+```bash
 sudo npm install -g kime-framework
+```
+
 Verify installation:
 
-bash
-Copy code
+```bash
 kime --version
-Expected output:
+```
 
-yaml
-Copy code
-Kime Framework version: 1.3.0
-🚀 Creating a New Project
-bash
-Copy code
-kime new MyApp
-cd MyApp
+## Creating a Project
+
+Scaffold a new project:
+
+```bash
+kime new WebApp
+```
+new project:
+```bash
+cd WebApp
+```
+
+Install depedencies
+```bash
 npm install
-During project creation, select:
+```
 
-Template Type: Default / With CRUD Functions
 
-Database: MongoDB / MySQL
 
-Include Electron: Yes / No
+### Project Structure
 
-Project Structure
-pgsql
-Copy code
+```
 MyApp/
 ├── kime/
 │   ├── index.js
@@ -68,59 +70,76 @@ MyApp/
 │   └── views/
 ├── server.js
 ├── package.json
-🛠 CLI Commands
-Command	Description
-kime --version	Show CLI version
-kime new <project>	Create a new project with full structure
-kime create controller <Name>	Generate a controller
-kime create model <Name>	Generate a model
-kime serve	Start the development server
-kime update	Commit & push updates to GitHub
+```
 
-💻 Running the Development Server
-bash
-Copy code
+## CLI Commands
+
+```bash
+kime --version              # Show CLI version
+kime new <project>         # Create new project
+kime create controller <Name>  # Generate controller
+kime create model <Name>   # Generate model
+kime serve                 # Start dev server
+kime update                # Commit & push to GitHub
+```
+
+## Running the Server
+
+Start the development server:
+
+```bash
 cd MyApp
 kime serve
-Access your app in the browser:
+```
 
-arduino
-Copy code
+Access at:
+
+```plaintext
 http://localhost:3000
-Terminal shows server logs in real time.
+```
 
-🖥 Electron Desktop Support (Optional)
-If Electron was enabled:
+View real-time logs in the terminal.
 
-bash
-Copy code
-# Development mode (server + Electron)
+## Electron Support
+
+If Electron is enabled:
+
+```bash
+# Dev mode (server + Electron)
 npm run kime-dev
 
 # Production build
 npm run kime-build
-Runs your web project as a desktop application.
+```
 
-⬆ Updating Kime CLI
-bash
-Copy code
+Launches your web app as a desktop application.
+
+## Updating Kime
+
+Update the CLI:
+
+```bash
 npm install -g kime-framework
+```
+
 Verify:
 
-bash
-Copy code
+```bash
 kime --version
-Admin can also push framework updates to GitHub:
+```
 
-bash
-Copy code
+Push framework updates (admin):
+
+```bash
 kime update
-Prompts for a commit message and automates git add, git commit, git push.
+```
 
-🤝 Contributing
-Open issues or submit pull requests on GitHub
+Prompts for commit message and runs `git add`, `git commit`, `git push`.
 
-Follow modular conventions and folder structure
+## Contributing
 
-Add comments and documentation for any new features
+Join us on [GitHub](https://github.com/kime-framework):
 
+- Open issues or submit PRs
+- Follow modular folder structure
+- Add comments/docs for new features
