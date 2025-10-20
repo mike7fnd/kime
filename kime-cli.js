@@ -10,6 +10,16 @@ const command = args[0];
 const appPath = path.join(__dirname, 'app');
 
 // -------------------
+// Check for version flag
+// -------------------
+const packageJson = require('./package.json');
+
+if (args.includes('--version') || args.includes('-v')) {
+    console.log(`Kime Framework version: ${packageJson.version}`);
+    process.exit(0); // exit after printing version
+}
+
+// -------------------
 // Create a new controller
 // -------------------
 function createController(name) {
@@ -140,4 +150,5 @@ switch (command) {
   // -------------------
   default:
     console.log('Unknown command. Available commands: create, serve, new');
+    console.log('Global flags: --version, -v');
 }
