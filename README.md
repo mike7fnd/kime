@@ -3,7 +3,7 @@
 # Kime Framework
 
 
-> Lightweight Node.js Framework for Rapid Web & Desktop Development developed by of Mike Fernandez.
+> Lightweight Node.js Framework for Rapid Web & Desktop Development developed by Mike Fernandez.
 
 ## Overview
 
