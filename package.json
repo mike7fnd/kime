@@ -1,0 +1,28 @@
+{
+  "name": "kime-framework",
+  "version": "1.0.0",
+  "description": "Kime Framework - a lightweight Node.js web framework with CLI",
+  "main": "server.js",
+  "bin": {
+    "kime": "./kime-cli.js"
+  },
+  "scripts": {
+    "start": "node server.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "kime",
+    "framework",
+    "nodejs",
+    "web",
+    "cli"
+  ],
+  "author": "Mike Fernandez",
+  "license": "MIT",
+  "dependencies": {
+    "body-parser": "^2.2.0",
+    "ejs": "^3.1.10",
+    "express": "^5.1.0",
+    "inquirer": "^12.10.0"
+  }
+}
